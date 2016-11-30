@@ -1,13 +1,8 @@
 var app = angular.module('feedback', [
     'ngRoute',
-    'feedback.emailSent',
-    'feedback.forgotPassword',
-    'feedback.ideas',
-    'feedback.login',
-    'feedback.newIdea',
-    'feedback.preferences',
-    'feedback.register',
-    'feedback.welcome'
+    'feedback.welcome',
+    'feedback.viewFeedback',
+    'feedback.newFeedback'
 ]);
 
 app.config(function($routeProvider) {

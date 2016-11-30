@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
+    <!--Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--Native CSS Stylesheet reference-->
+    <link rel="stylesheet" href="public/css/style.css">
+    <!--Font Awesome CDN-->
+    <script src="https://use.fontawesome.com/2c3779d488.js"></script>
 </head>
 <body ng-app="feedback">
 
 <ng-view></ng-view>
 
+<!--JQuery CDN-->
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 <!--Angular CDN-->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
@@ -15,17 +25,11 @@
 <script type="text/javascript" src="https://code.angularjs.org/1.6.0-rc.2/angular-route.min.js"></script>
 
 <!--Angular application injection-->
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="public/js/index.js"></script>
 
 <!--Angular module injection-->
-<script type="text/javascript" src="js/emailSent.js"></script>
-<script type="text/javascript" src="js/forgotPassword.js"></script>
-<script type="text/javascript" src="js/ideas.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
-<script type="text/javascript" src="js/newIdea.js"></script>
-<script type="text/javascript" src="js/preferences.js"></script>
-<script type="text/javascript" src="js/register.js"></script>
-<script type="text/javascript" src="js/welcome.js"></script>
-
+<script type="text/javascript" src="public/js/welcome.js"></script>
+<script type="text/javascript" src="public/js/viewFeedback.js"></script>
+<script type="text/javascript" src="public/js/newFeedback.js"></script>
 </body>
 </html>
