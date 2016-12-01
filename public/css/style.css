@@ -1,7 +1,7 @@
 /********       Testing       ********/
 
 div {
-    border: 1px dotted;
+
 }
 
 
@@ -11,3 +11,177 @@ body {
     padding: 0;
 }
 
+
+
+/*Welcome page styling*/
+
+.welcome-header {
+    height: 80px;
+
+}
+
+.welcome-header nav {
+    line-height: 80px;
+    text-align: center;
+}
+
+.welcome-header nav a:first-child {
+    float: left;
+}
+.welcome-wrapper-one {
+    padding-top: 80px;
+    height: 100vh;
+    background-image: url("../images/welcome-bg.jpeg");
+    background-size: cover;
+}
+
+.welcome-wrapper-one h2 {
+    color: white;
+    text-align: center;
+    margin-top: 200px;
+    font-size: 5em;
+}
+
+.welcome-wrapper-one p {
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.welcome-wrapper-one h3 {
+    color: white;
+    text-align: center;
+    margin-top: 40vh;
+    font-size: 4em;
+    opacity: .2;
+}
+
+.side-bar {
+    height: 100vh;
+    padding-top: 100px;
+    border-right: 1px solid;
+}
+
+.side-bar form {
+    text-align: center;
+}
+
+.side-bar form input {
+    width: 80%;
+    font-size: 2.3em;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #14AEE8;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+.side-bar form input:focus {
+    background-color: #14AEE8;
+    color: white;
+}
+
+.side-bar select {
+    width: 80%;
+    margin-bottom: 20px;
+    font-size: 2em;
+    outline: none;
+    text-align: center;
+}
+
+.side-bar p {
+    font-size: 1.2em;
+}
+
+.side-bar p i{
+    font-size: 3em;
+    float: right;
+}
+
+#submit-button {
+    width: 80%;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 40px;
+    margin-left: 6.5%;
+    border-radius: 6px;
+    background-color: transparent;
+    border: 2px solid #14AEE8;
+    color: #14AEE8;
+    outline: none;
+}
+
+#submit-button:hover {
+    background-color: #14AEE8;
+    color: white;
+}
+
+#submit-button:active {
+    position: relative;
+    top: 2px;
+}
+
+.feed-wrapper {
+    height: 100vh;
+    overflow: scroll;
+}
+
+.feed-wrapper ul {
+    text-align: center;
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 90px;
+}
+
+.feed-wrapper ul li {
+    margin-bottom: 5px;
+}
+
+.idea-wrapper {
+    height: 300px;
+    background-size: cover;
+}
+
+.title {
+    font-size: 4em;
+    color: white;
+}
+
+.author {
+    font-size: 1.6em;
+    color: white;
+}
+
+.like-button {
+    background-color: transparent;
+    color: white;
+    font-size: 2.2em;
+    margin-top: 100px;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    border: 2px solid white;
+    outline: none;
+    -webkit-transition: font-size .1s;
+    transition: font-size .1s;
+}
+
+.like-button:hover {
+    font-size: 2.4em;
+}
+
+.like-button:active {
+    position: relative;
+    top: 2px;
+}
+
+.vote-count {
+    color: white;
+}
+
+.blue {
+    color: #14AEE8;
+}

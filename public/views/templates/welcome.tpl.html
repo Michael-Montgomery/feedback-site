@@ -1,1 +1,67 @@
-{{message}}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 welcome-header navbar-fixed-top">
+            <nav>
+                <a href="#/welcome"><img src="../../images/logo.png"></a>
+                <a href="#viewFeedback"></a>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 welcome-wrapper-one">
+            <h2>Feedback</h2>
+            <p>You speak + We listen</p>
+            <h3><i class="fa fa-arrow-down" aria-hidden="true"></i></h3>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 side-bar">
+            <form>
+                <input type="text" placeholder="Search" ng-model="searchText"><br>
+                <select>
+                    <option>Filter by Category</option>
+                    <option>Online Giving & Advocacy</option>
+                    <option>Website Design & Management</option>
+                    <option>Dashboards</option>
+                </select><br/>
+                <select>
+                    <option>Sort</option>
+                    <option>Newest First</option>
+                    <option>Oldest First</option>
+                    <option>Most Upvotes</option>
+                </select>
+                <p>Show implemented ideas <span id="show-implemented"><i ng-click="toggleImplemented()" class="fa fa-toggle-on blue" aria-hidden="true"></i></span> </p><br>
+                <p>Show ideas that have not been implemented <span id="show-non-implemented"><i ng-click="toggleNonImplemented()" class="fa fa-toggle-on blue" aria-hidden="true"></i></span> </p>
+                <button id="submit-button" ng-click="presentSubmitForm()">Submit an idea</button>
+
+
+                <!--***** Test -->
+
+
+
+
+
+
+            </form>
+
+        </div>
+        <div class="col-md-9 feed-wrapper">
+            <ul>
+                <li ng-repeat="idea in ideas | filter:searchText track by $index">
+                    <div class="idea-wrapper" ng-style="{'background-image':'url({{idea.bgImgUrl}})'}">
+                        <h3 class="title">{{idea.ideaTitle}}</h3>
+                        <p class="author">by: {{idea.authorName}}</p>
+                        <button class="like-button" ng-click="incrementLike($index)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+                        <p class="vote-count">{{idea.upvotes}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
