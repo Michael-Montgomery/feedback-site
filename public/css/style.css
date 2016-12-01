@@ -17,6 +17,8 @@ body {
 
 .welcome-header {
     height: 80px;
+    -webkit-transition: background-color .5s;
+    transition: background-color .5s;
 
 }
 
@@ -30,7 +32,7 @@ body {
 }
 .welcome-wrapper-one {
     padding-top: 80px;
-    height: 100vh;
+    height: 90vh;
     background-image: url("../images/welcome-bg.jpeg");
     background-size: cover;
 }
@@ -134,6 +136,8 @@ body {
     list-style-type: none;
     padding-left: 0;
     margin-top: 90px;
+    z-index: 1;
+
 }
 
 .feed-wrapper ul li {
@@ -155,11 +159,17 @@ body {
     color: white;
 }
 
+.date {
+    color: white;
+    font-size: 1.3em;
+    opacity: .7;
+}
+
 .like-button {
     background-color: transparent;
     color: white;
     font-size: 2.2em;
-    margin-top: 100px;
+    margin-top: 50px;
     height: 60px;
     width: 60px;
     border-radius: 60px;
@@ -184,4 +194,97 @@ body {
 
 .blue {
     color: #14AEE8;
+}
+
+.idea-form-wrapper {
+    height: 100vh;
+    padding-top: 100px;
+    display: none;
+}
+
+.idea-form-wrapper h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.idea-form-wrapper form {
+    text-align: center;
+}
+
+.half-pipe {
+    width: 40%;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+    outline: none;
+
+}
+
+.full-pipe {
+    width: 80.5%;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+    outline: none;
+}
+
+.idea-form-wrapper textarea {
+    height: 30vh;
+    resize: none;
+}
+
+.idea-form-wrapper input[type=checkbox] {
+    margin-right: 6px;
+}
+
+.idea-form-wrapper p {
+    font-size: 1.6em;
+}
+
+#cancel-idea-button {
+    background-color: transparent;
+    color: #14AEE8;
+    font-size: 2em;
+    border-radius: 6px;
+    border: 2px solid #14AEE8;
+    float: left;
+    margin-left: 10%;
+    outline: none;
+}
+
+#cancel-idea-button:hover {
+    background-color: #14AEE8;
+    color: white;
+    font-size: 2em;
+    border-radius: 6px;
+    border: 2px solid #14AEE8;
+    float: left;
+    margin-left: 10%;
+}
+
+.idea-form-wrapper button:last-child {
+    background-color: #14AEE8;
+    color: white;
+    font-size: 2em;
+    border-radius: 6px;
+    border: 2px solid #14AEE8;
+    float: right;
+    margin-right: 10%;
+    outline: none;
+
+}
+
+.idea-form-wrapper button:last-child:hover {
+    background-color: transparent;
+    color: #14AEE8;
+}
+
+.idea-form-wrapper button:active {
+    position: relative;
+    top: 2px;
+}
+
+progress {
+    width: 60%;
+    height: 60px;
 }

@@ -3,7 +3,6 @@ var app = angular.module('feedback', [
     'feedback.welcome',
     'feedback.viewFeedback',
     'feedback.newFeedback',
-    'ui.bootstrap'
 ]);
 
 app.config(function($routeProvider) {

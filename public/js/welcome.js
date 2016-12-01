@@ -7,50 +7,10 @@ app.config(function($routeProvider) {
     })
 });
 
-app.controller('welcomeController', function($scope, $uibModal) {
-    $(window).scroll(function() {
-        if($(window).scrollTop() != 0) {
-            $('.welcome-header').css('background-color', 'black').css('opacity', '.7')
-        } else {
-            $('.welcome-header').css('background-color', 'transparent').css('opacity', '1')
-        }
-    });
 
-    $scope.presentSubmitForm = function() {
-        
-    }
 
-    $scope.searchCriteria = {
-        showImplemented: true,
-        showNonImplemented: true,
-        toggleImplemented: function() {
-            if($scope.searchCriteria.showImplemented) {
-                $scope.searchCriteria.showImplemented = false;
-            } else {
-                $scope.searchCriteria.showImplemented = true;
-            }
-        }
-    };
 
-    $scope.toggleImplemented = function() {
-        $scope.searchCriteria.toggleImplemented();
-        if($scope.searchCriteria.showImplemented) {
-            $('#show-implemented').html('<i class="fa fa-toggle-on" aria-hidden="true"></i>')
-        } else {
-            $('#show-implemented').html('<i class="fa fa-toggle-off" aria-hidden="true"></i>')
-        }
-    };
-
-    $scope.toggleNonImplemented = function() {
-        if($scope.searchCriteria.showNonImplemented) {
-            $scope.searchCriteria.showNonImplemented = false;
-            $('#show-non-implemented').html('<i class="fa fa-toggle-off" aria-hidden="true"></i>')
-        } else {
-            $scope.searchCriteria.showNonImplemented = true;
-            $('#show-non-implemented').html('<i class="fa fa-toggle-on" aria-hidden="true"></i>')
-        }
-    }
-
+app.controller('welcomeController', function($scope) {
 
     $scope.ideas = [
         {
@@ -108,4 +68,105 @@ app.controller('welcomeController', function($scope, $uibModal) {
             implemented: false
         }
     ]
+
+    var picHandler = {
+        counter: 0,
+        urls: [
+            'https://static.pexels.com/photos/91988/pexels-photo-91988.jpeg',
+            'https://static.pexels.com/photos/46016/pexels-photo-46016.jpeg',
+            'https://static.pexels.com/photos/127561/pexels-photo-127561.jpeg',
+            'https://static.pexels.com/photos/162806/apple-fruit-fruits-delicious-162806.jpeg',
+            'https://static.pexels.com/photos/241495/pexels-photo-241495.jpeg'
+        ],
+        nextPic: function() {
+            this.counter++;
+            if(this.counter === this.urls.length) {
+                this.counter = 0;
+            }
+            return this.urls[this.counter]
+        }
+    }
+
+
+
+
+
+    $(window).scroll(function() {
+        if($(window).scrollTop() != 0) {
+            $('.welcome-header').css('background-color', 'black').css('opacity', '.7')
+        } else {
+            $('.welcome-header').css('background-color', 'transparent').css('opacity', '1')
+        }
+    });
+
+    $scope.presentSubmitForm = function() {
+        $('.feed-wrapper').fadeToggle();
+        $('.idea-form-wrapper').css('display', 'unset')
+
+    };
+
+
+    $scope.showFeed = function() {
+        $('.idea-form-wrapper').fadeToggle().css('display', 'none');
+        $('.feed-wrapper').fadeToggle();
+    };
+
+    $scope.incrementLike = function(idx) {
+        $scope.ideas[idx].upvotes++;
+    }
+
+
+    $scope.submitIdea = function() {
+        $scope.ideas.push({
+            dateCreated: new Date(),
+            authorName: $scope.fName + ' ' + $scope.lName,
+            authorCompany: $scope.comp,
+            ideaTitle: $scope.title,
+            authorEmail: $scope.email,
+            idea: $scope.idea,
+            upvotes: 0,
+            bgImgUrl: picHandler.nextPic(),
+            implemented: false
+
+        });
+
+        $scope.showFeed();
+    }
+
+
+
+
+
+    $scope.searchCriteria = {
+        showImplemented: true,
+        showNonImplemented: true,
+        toggleImplemented: function() {
+            if($scope.searchCriteria.showImplemented) {
+                $scope.searchCriteria.showImplemented = false;
+            } else {
+                $scope.searchCriteria.showImplemented = true;
+            }
+        }
+    };
+
+    $scope.toggleImplemented = function() {
+        $scope.searchCriteria.toggleImplemented();
+        if($scope.searchCriteria.showImplemented) {
+            $('#show-implemented').html('<i class="fa fa-toggle-on" aria-hidden="true"></i>')
+        } else {
+            $('#show-implemented').html('<i class="fa fa-toggle-off" aria-hidden="true"></i>')
+        }
+    };
+
+    $scope.toggleNonImplemented = function() {
+        if($scope.searchCriteria.showNonImplemented) {
+            $scope.searchCriteria.showNonImplemented = false;
+            $('#show-non-implemented').html('<i class="fa fa-toggle-off" aria-hidden="true"></i>')
+        } else {
+            $scope.searchCriteria.showNonImplemented = true;
+            $('#show-non-implemented').html('<i class="fa fa-toggle-on" aria-hidden="true"></i>')
+        }
+    }
+
+
 })

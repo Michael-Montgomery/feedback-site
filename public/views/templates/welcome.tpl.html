@@ -1,4 +1,5 @@
-<div class="container-fluid">
+<div id="app-wrapper">
+<div class="container-fluid" style="z-index: 1">
     <div class="row">
         <div class="col-md-12 col-xs-12 welcome-header navbar-fixed-top">
             <nav>
@@ -9,7 +10,7 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" style="z-index: 1">
     <div class="row">
         <div class="col-md-12 col-xs-12 welcome-wrapper-one">
             <h2>Feedback</h2>
@@ -19,7 +20,7 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" style="z-index: 1">
     <div class="row">
         <div class="col-md-3 side-bar">
             <form>
@@ -51,17 +52,44 @@
             </form>
 
         </div>
-        <div class="col-md-9 feed-wrapper">
+
+
+        <div class="col-md-9 feed-wrapper" style="z-index: 1">
             <ul>
                 <li ng-repeat="idea in ideas | filter:searchText track by $index">
                     <div class="idea-wrapper" ng-style="{'background-image':'url({{idea.bgImgUrl}})'}">
                         <h3 class="title">{{idea.ideaTitle}}</h3>
-                        <p class="author">by: {{idea.authorName}}</p>
+                        <p class="author">by: {{idea.authorName}}</p><br>
+                        <p class="date">{{idea.dateCreated | date}}</p>
                         <button class="like-button" ng-click="incrementLike($index)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
                         <p class="vote-count">{{idea.upvotes}}</p>
                     </div>
                 </li>
             </ul>
         </div>
+        <div class="col-md-9 idea-form-wrapper">
+           <form>
+
+               <h2>Submit an idea</h2>
+               <input type="text" class="half-pipe" placeholder="First Name" ng-model="fName">
+               <input type="text" class="half-pipe" placeholder="Last Name" ng-model="lName"><br>
+               <input type="text" class="full-pipe" placeholder="Company" ng-model="comp"><br>
+               <input type="text" class="full-pipe" placeholder="Email" ng-model="email"><br>
+               <select class="full-pipe">
+                   <option>Choose a Category</option>
+                   <option>Online Giving & Advocacy</option>
+                   <option>Website Design & Management</option>
+                   <option>Dashboards</option>
+               </select><br>
+               <input type="text" class="full-pipe" placeholder="Title" ng-model="title">
+               <textarea class="full-pipe" placeholder="Tell us about your idea" ng-model="idea"></textarea><br>
+               <p> <input type="checkbox"> Send me an email if/when my idea is implemented.  </p>
+               <button id="cancel-idea-button" ng-click="showFeed()">Cancel</button>
+               <button ng-click="submitIdea()">Submit my idea</button>
+
+           </form>
+        </div>
+
     </div>
+</div>
 </div>
