@@ -13,6 +13,12 @@
     <script src="https://use.fontawesome.com/2c3779d488.js"></script>
     <!--JQuery UI-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!--Font Awesome-->
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+
+
 
 
 
@@ -20,25 +26,64 @@
 
 
 </head>
-<body ng-app="feedback">
+<body ng-app="feedback" ng-controller="feedbackController">
 
-<ng-view></ng-view>
+
+<!--Header-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 header navbar-fixed-top">
+            <header>
+                <nav>
+                    <a href="#"><img src="public/images/logo.png"></a>
+                    <a><input type="text" placeholder="Search" ng-model="searchText"> </a>
+                    <a href="#"><button><i class="fa fa-filter" aria-hidden="true"></i></button></a>
+                    <a href="#"><button id="refine-button"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+                </nav>
+            </header>
+        </div>
+    </div>
+</div>
+
+<!--End of header-->
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="welcome-wrapper" class="col-md-12 welcome-wrapper">
+            <h2>Feedback</h2>
+            <p>You speak + we listen</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="idea-wrapper" class="col-md-12 idea-wrapper">
+            <ul>
+                <li ng-repeat="idea in ideas | filter:searchText track by $index">
+                    <div class="list-idea-wrapper">
+                        <h3 class="list-idea-title">{{idea.title}}</h3>
+                        <p class="list-idea-author">By: {{idea.author}}</p><br>
+                        <p class="list-idea-date">{{idea.date | date}}</p>
+                        <button class="-list-like-button" ng-click="incrementLike($index)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+                        <p class="list-like-count">{{idea.likes}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <!--JQuery CDN-->
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 <!--Angular CDN-->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
-<!--Angular Routing CDN-->
-<script type="text/javascript" src="https://code.angularjs.org/1.6.0-rc.2/angular-route.min.js"></script>
+
 
 <!--Angular application injection-->
 <script type="text/javascript" src="public/js/index.js"></script>
 
-<!--Angular module injection-->
-<script type="text/javascript" src="public/js/welcome.js"></script>
-<script type="text/javascript" src="public/js/viewFeedback.js"></script>
-<script type="text/javascript" src="public/js/newFeedback.js"></script>
 
 </body>
 </html>
