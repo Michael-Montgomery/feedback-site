@@ -37,9 +37,29 @@
                 <nav>
                     <a href="#"><img src="public/images/logo.png"></a>
                     <a><input type="text" placeholder="Search" ng-model="searchText"> </a>
-                    <a href="#"><button><i class="fa fa-filter" aria-hidden="true"></i></button></a>
-                    <a href="#"><button id="refine-button"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+                    <a><button id="refine-button" ng-click="showFilterOptions()"><i class="fa fa-filter" aria-hidden="true"></i></button></a>
+                    <a><button id="add-button"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
                 </nav>
+
+                <form>
+
+                    <select>
+                        <option>Filtering Options</option>
+                        <optgroup label="organization">
+                            <option>Camino Global</option>
+                            <option>International Mission Board</option>
+                        </optgroup>
+                    </select>
+                    <select>
+                        <option>Sorting Options</option>
+                        <option>Most Votes</option>
+                        <option>Newest First</option>
+                        <option>Oldest First</option>
+                    </select>
+
+                    <button id="reset-button">Reset</button>
+                    <button id="results-button" ng-click="showResults()">View Results</button>
+                </form>
             </header>
         </div>
     </div>
@@ -52,6 +72,7 @@
         <div id="welcome-wrapper" class="col-md-12 welcome-wrapper">
             <h2>Feedback</h2>
             <p>You speak + we listen</p>
+            <p id="down-arrow" ng-click="scrollToIdeas()"><i class="fa fa-chevron-down" aria-hidden="true"></i></p>
         </div>
     </div>
 </div>
