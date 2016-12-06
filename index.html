@@ -38,7 +38,7 @@
                     <a href="#"><img src="public/images/logo.png"></a>
                     <a><input type="text" placeholder="Search" ng-model="searchText"> </a>
                     <a><button id="refine-button" ng-click="showFilterOptions()"><i class="fa fa-filter" aria-hidden="true"></i></button></a>
-                    <a><button id="add-button"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+                    <a><button id="add-button" ng-click="showIdeaForm()"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
                 </nav>
 
                 <form>
@@ -95,6 +95,28 @@
     </div>
 </div>
 
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="footer" class="col-md-12 navbar-fixed-bottom">
+            <form>
+                <h3>Submit an idea</h3>
+                <input type="text" class="half-pipe" placeholder="First Name" ng-model="fName">
+                <input type="text" class="half-pipe" placeholder="Last Name" ng-model="lName"><br>
+                <input type="text" class="full-pipe" placeholder="Organization" ng-model="company"><br>
+                <input type="email" class="full-pipe" placeholder="Email Address" ng-model="email"><br>
+                <select class="full-pipe">
+                    <option value="default">Select a Category</option>
+                    <option value="dashbords">Dashboards</option>
+                </select><br>
+                <input type="text" class="full-pipe" placeholder="Enter a Title for Your Idea" ng-model="title"><br>
+                <textarea  class="full-pipe" placeholder="Tell us about your idea..." ng-model="description"></textarea><br>
+                <button id="cancelIdeaFormButton" ng-click="showIdeaForm()">Cancel</button>
+                <button id="submitIdeaForm" ng-click="submitIdeaForm()">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
 <!--JQuery CDN-->
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 

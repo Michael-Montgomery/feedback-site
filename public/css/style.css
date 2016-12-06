@@ -70,7 +70,15 @@ header nav a:nth-child(3), header nav a:nth-child(4) {
     border: 2px solid white;
     outline: none;
     display: none;
+    margin-left: 10px;
+    padding-top: -200px;
 
+
+}
+
+.header nav a button:hover {
+    color: #14AEE8;
+    border: 2px solid #14AEE8;
 }
 
 .header form {
@@ -164,5 +172,122 @@ header nav a:nth-child(3), header nav a:nth-child(4) {
 .list-idea-wrapper {
     width: 98%;
     height: 400px;
-    background-color: beige;
+    background-image: url("https://static.pexels.com/photos/57791/pexels-photo-57791.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.-list-like-button {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    font-size: 2.5em;
+    outline: none;
+    -webkit-transition: font-size .3s, background-color .3s, color .3s;
+    transition: font-size .3s, background-color .3s, color .3s;
+}
+
+.-list-like-button:hover {
+    color: #14AEE8;
+    border: 2px solid #14AEE8;
+    background-color: white;
+    font-size: 2.7em;
+}
+
+.-list-like-button:active {
+    position: relative;
+    top: 2px;
+}
+
+.list-idea-title {
+    color: white;
+    font-size: 5em;
+}
+
+.list-idea-author {
+    color: white;
+    font-size: 2em;
+}
+
+.list-idea-date {
+    color: white;
+    font-size: 1.3em;
+}
+
+.list-like-count {
+    color: white;
+}
+
+#footer {
+    height: 0;
+    background-color: black;
+    -webkit-transition: height .8s;
+    transition: height .8s;
+}
+
+#footer form {
+    text-align: center;
+}
+
+#footer h3 {
+    color: white;
+    font-size: 2em;
+}
+.half-pipe {
+    width: 34.9%;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+    outline: none;
+}
+
+.full-pipe {
+    width: 70%;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+    outline: none;
+}
+#cancelIdeaFormButton {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 2em;
+    float: left;
+    margin-left: 15%;
+    outline: none;
+}
+
+#cancelIdeaFormButton:hover {
+    color: #14AEE8;
+    border: 2px solid #14AEE8;
+}
+
+#cancelIdeaFormButton:active {
+    position: relative;
+    top: 2px;
+}
+
+#submitIdeaForm {
+    background-color: #14AEE8;
+    color: white;
+    border: 2px solid white;
+    font-size: 2em;
+    float: right;
+    margin-right: 15%;
+    outline: none;
+}
+
+#submitIdeaForm:hover {
+    background-color: black;
+    color: #14AEE8;
+    border: 2px solid #14AEE8;
+}
+
+#submitIdeaForm:active {
+    position: relative;
+    top: 2px;
 }
