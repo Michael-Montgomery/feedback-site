@@ -1,0 +1,28 @@
+{
+  "name": "feedback-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Michael-Montgomery/feedback-site.git"
+  },
+  "author": "Michael Montgomery",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Michael-Montgomery/feedback-site/issues"
+  },
+  "homepage": "https://github.com/Michael-Montgomery/feedback-site#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.1",
+    "path": "^0.12.7",
+    "uuid": "^3.0.1"
+  }
+}

@@ -112,7 +112,7 @@
                 <input type="text" class="full-pipe" placeholder="Enter a Title for Your Idea" ng-model="title"><br>
                 <textarea  class="full-pipe" placeholder="Tell us about your idea..." ng-model="description"></textarea><br>
                 <button id="cancelIdeaFormButton" ng-click="showIdeaForm()">Cancel</button>
-                <button id="submitIdeaForm" ng-click="submitIdeaForm()">Submit</button>
+                <button id="submitIdeaForm" ng-click="postIdea()">Submit</button>
             </form>
         </div>
     </div>
@@ -127,6 +127,7 @@
 <!--Angular application injection-->
 <script type="text/javascript" src="public/js/index.js"></script>
 
-
+<!--Angular Service(s)-->
+<script type="text/javascript" src="public/js/services/request.js"></script>
 </body>
 </html>
