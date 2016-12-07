@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 cms-search-wrapper">
+            <input type="text" placeholder="search" ng-model="cmsSearchText">
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 cms-ideas-wrapper">
+            <ul>
+                <li ng-repeat="idea in cmsIdeas | filter:cmsSearchText track by $index">
+                    <div class="cms-idea-wrapper">
+                        <h2>{{idea.title}}</h2><br>
+                        <p>By: {{idea.author}}</p><br>
+                        <p>{{idea.organization}}</p>
+                        <p>{{idea.date | date}}</p>
+                        <p>Likes: {{idea.likes}}</p>
+                        <button ng-click="deleteIdea($index)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                        <button><i class="fa fa-rocket" aria-hidden="true"></i></button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

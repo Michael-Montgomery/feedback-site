@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--Font Awesome CDN-->
+    <script src="https://use.fontawesome.com/2c3779d488.js"></script>
+    <!--Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--Native stylesheet reference-->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body ng-app="cms">
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 cms-header">
+            <header>
+                <nav>
+                    <a href="#/ideacms">Manage Ideas</a>
+                </nav>
+            </header>
+        </div>
+    </div>
+</div>
+
+<ng-view></ng-view>
+
+
+<!--Angular CDN-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+<!--Angular Routing CDN-->
+<script src="https://code.angularjs.org/1.6.0-rc.2/angular-route.min.js"></script>
+
+<!--Injection of Angular Application-->
+<script src="../js/index.js"></script>
+
+<!--Injection of Angular modules-->
+<script src="../js/ideascms.js"></script>
+
+
+<!--Injection of Angualar services-->
+<script src="../js/services/cmsrequest.js"></script>
+</body>
+</html>

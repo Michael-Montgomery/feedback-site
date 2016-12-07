@@ -33,7 +33,18 @@ app.post('/ideas', function(req, res) {
     res.status(200).send(ideas);
 });
 
+app.delete('/ideas/:id', function(req, res) {
+    for(var i = 0; i < ideas.length; i++) {
+        if(ideas[i].id === req.params.id) {
+            ideas.splice(i, 1);
+        }
+    }
+    res.send(ideas);
+})
+
 
 
 
 app.listen(8701);
+
+

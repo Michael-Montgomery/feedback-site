@@ -94,7 +94,8 @@ app.controller('feedbackController', function($scope, request) {
                 author: $scope.fName + ' ' + $scope.lName,
                 email: $scope.email,
                 organization: $scope.company,
-                likes: 0
+                likes: 0,
+                roadMapped: false
             },
            function(response) {
             $scope.ideas = response.data;
