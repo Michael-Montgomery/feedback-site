@@ -5,6 +5,6 @@ app.service('cmsRequestHandler', function($http) {
         $http.get('http://localhost:8701/ideas').then(goodFunc, badFunc)
     };
     this.deleteIdea = function(data, goodFunc, badFunc) {
-        $http.delete('http://localhost:8701/ideas/' + data.id).then(goodFunc, badFunc)
+        $http.delete('http://localhost:8701/ideas/' + data._id).then(goodFunc, badFunc)
     }
 });

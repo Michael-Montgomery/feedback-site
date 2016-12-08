@@ -18,28 +18,84 @@ app.use(bodyParser.json());
 
 
 
-var ideas = [
 
-];
+
+mongoose.connect('mongodb://localhost/feedback');
+
+
+var ideaModel = require('./models/idea.js');
+
+
 
 app.get('/ideas', function(req, res) {
-    res.status(200).send(ideas);
+    ideaModel.find(function(err, ideas) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send(ideas);
+        }
+    })
 });
 
 app.post('/ideas', function(req, res) {
-    var identifier = uuidV4();
-    req.body.id = identifier;
-    ideas.push(req.body);
-    res.status(200).send(ideas);
+
+
+
+    var newIdea = new ideaModel({
+        date: req.body.date,
+        title: req.body.title,
+        idea: req.body.idea,
+        author: req.body.author,
+        email: req.body.email,
+        organization: req.body.organization,
+        likes: req.body.likes,
+        roadMapped: req.body.roadMapped
+    });
+
+    newIdea.save(function(err, savedItem) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            ideaModel.find(function(err, ideas) {
+                if(err) {
+                    res.status(500).send(err);
+                } else {
+                    res.status(200).send(ideas);
+                }
+            })
+        }
+    })
+
+
+    // var date = Mdate;
+    // var title = Mtitle;
+    // var idea = Midea;
+    // var author = Mauthor;
+    // var email = Memail;
+    // var organization = Morg;
+    // var likes = Mlikes;
+    // var roadMapped = MroadMapped;
+
+
+
+
 });
 
 app.delete('/ideas/:id', function(req, res) {
-    for(var i = 0; i < ideas.length; i++) {
-        if(ideas[i].id === req.params.id) {
-            ideas.splice(i, 1);
+    var passedId = req.params.id;
+    ideaModel.findOneAndRemove({_id: passedId}, function(err, removed) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            ideaModel.find(function(err, ideas) {
+                if(err) {
+                    res.status(500).send(err);
+                } else {
+                    res.status(200).send(ideas);
+                }
+            })
         }
-    }
-    res.send(ideas);
+    })
 })
 
 
