@@ -129,7 +129,7 @@ app.controller('feedbackController', function($scope, request) {
     };
 
     $scope.toggleDescription = function(idx) {
-        alert(idx);
+
     }
 
 
@@ -170,6 +170,8 @@ app.controller('feedbackController', function($scope, request) {
         }, function(response) {
             console.log(response);
         })
+        $scope.title = '';
+        $scope.description = '';
     };
 
 
