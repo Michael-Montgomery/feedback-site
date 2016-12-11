@@ -13,10 +13,8 @@
     <script src="https://use.fontawesome.com/2c3779d488.js"></script>
     <!--JQuery UI-->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!--Font Awesome-->
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-
+    <!--Google Fonts CDN-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poiret+One|Ramabhadra" rel="stylesheet">
 
 
 
@@ -37,8 +35,8 @@
                 <nav>
                     <a href="#"><img src="public/images/logo.png"></a>
                     <a><input type="text" placeholder="Search" ng-model="searchText"> </a>
-                    <a><button id="refine-button" ng-click="showFilterOptions()"><i class="fa fa-filter" aria-hidden="true"></i></button></a>
-                    <a><button id="add-button" ng-click="showIdeaForm()"><i class="fa fa-plus" aria-hidden="true"></i></button></a>
+                    <a><button id="refine-button" ng-click="showFilterOptions()"><span class="glyphicon glyphicon-filter"></span></button></a>
+                    <a><button id="add-button" ng-click="showIdeaForm()"><span class="glyphicon glyphicon-plus"></span></button></a>
                 </nav>
 
                 <form>
@@ -70,7 +68,7 @@
 <div class="container-fluid">
     <div class="row">
         <div id="welcome-wrapper" class="col-md-12 welcome-wrapper">
-            <h2>Feedback</h2>
+            <h2>FEEDBACK</h2>
             <p>You speak + we listen</p>
             <p id="down-arrow" ng-click="scrollToIdeas()"><i class="fa fa-chevron-down" aria-hidden="true"></i></p>
         </div>
@@ -81,13 +79,16 @@
     <div class="row">
         <div id="idea-wrapper" class="col-md-12 idea-wrapper">
             <ul>
-                <li ng-repeat="idea in ideas | filter:searchText track by $index">
-                    <div class="list-idea-wrapper">
+                <li ng-repeat="idea in ideas | filter:searchText | orderBy:'-date' track by $index">
+                    <div class="list-idea-wrapper" ng-click="toggleDescription($index)">
                         <h3 class="list-idea-title">{{idea.title}}</h3>
                         <p class="list-idea-author">By: {{idea.author}}</p><br>
                         <p class="list-idea-date">{{idea.date | date}}</p>
                         <button class="-list-like-button" ng-click="incrementLike($index)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
                         <p class="list-like-count">{{idea.likes}}</p>
+                        <div class="decription-wrapper">
+                            <p class="list-idea-description">{{idea.idea}}</p>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -114,6 +115,31 @@
                 <button id="cancelIdeaFormButton" ng-click="showIdeaForm()">Cancel</button>
                 <button id="submitIdeaForm" ng-click="postIdea()">Submit</button>
             </form>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="responsive-footer" class="col-md-12 col-xs-12 navbar-fixed-bottom">
+            <nav>
+                <a><input type="text" placeholder="Search" ng-model="searchText"> </a>
+                <a><button ng-click="expandResponsiveFooter()"><span class="glyphicon glyphicon-plus"></span></button></a>
+            </nav>
+            <form>
+                <p>Submit an Idea</p>
+                <input type="text" id="res-fName" placeholder="First Name" ><br>
+                <input type="text" id="res-lName" placeholder="Last Name" ><br>
+                <input type="text" id="res-org" placeholder="Organization"><br>
+                <input type="email" id="res-email" placeholder="Email Address"><br>
+                <select>
+                    <option>Select a Category</option>
+                </select><br>
+                <input type="text" id="res-title" placeholder="Enter a title"><br>
+                <input type="text" id="res-idea" placeholder="Tell us about your idea..."><br>
+                <button ng-click="miniMenuIdea()">Submit</button>
+            </form>
+
         </div>
     </div>
 </div>

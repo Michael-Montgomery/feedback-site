@@ -65,21 +65,25 @@ app.post('/ideas', function(req, res) {
             })
         }
     })
-
-
-    // var date = Mdate;
-    // var title = Mtitle;
-    // var idea = Midea;
-    // var author = Mauthor;
-    // var email = Memail;
-    // var organization = Morg;
-    // var likes = Mlikes;
-    // var roadMapped = MroadMapped;
-
-
-
-
 });
+
+app.put('.ideas/:id', function(req, res) {
+    var passedId = req.params.id;
+    ideaModel.find({_id: passedId}, function(err, found) {
+        if(err) {
+            res.status(500).send(err);
+        } else {
+            found.likes++;
+            ideaModel.find(function(err, ideas) {
+                if(err) {
+                    res.status(500).send(err);
+                } else {
+                    res.status(200).send(ideas);
+                }
+            })
+        }
+    })
+})
 
 app.delete('/ideas/:id', function(req, res) {
     var passedId = req.params.id;

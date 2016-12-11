@@ -7,4 +7,7 @@ app.service('request', function($http) {
     this.postNewIdea = function(data, goodFunc, badFunc) {
         $http.post('http://localhost:8701/ideas', data).then(goodFunc, badFunc)
     }
+    this.incrementLike = function(data, goodFunc, badFunc) {
+        $http.put('http://localhost:8701/ideas/' + data._id).then(goodFunc, badFunc)
+    }
 })
