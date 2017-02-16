@@ -80,7 +80,7 @@
         <div id="idea-wrapper" class="col-md-12 idea-wrapper">
             <ul>
                 <li ng-repeat="idea in ideas | filter:searchText | orderBy:'-date' track by $index">
-                    <div class="list-idea-wrapper" ng-click="toggleDescription($index)">
+                    <div class="list-idea-wrapper" ng-click="toggleDescription($index)" ng-style="{'background-image': 'url(' + idea.bgUrl + ')'}">
                         <h3 class="list-idea-title">{{idea.title}}</h3>
                         <p class="list-idea-author">By: {{idea.author}}</p><br>
                         <p class="list-idea-date">{{idea.date | date}}</p>
@@ -152,5 +152,6 @@
 
 <!--Angular Service(s)-->
 <script type="text/javascript" src="public/js/services/request.js"></script>
+<script type="text/javascript" src="public/js/services/backgrounds.js"></script>
 </body>
 </html>

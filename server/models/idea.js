@@ -26,7 +26,8 @@ var ideaSchema = mongoose.Schema({
     roadMapped: {
         type: Boolean,
         required: true
-    }
+    },
+    bgUrl: String
 });
 
 var Idea = mongoose.model('ideas', ideaSchema);

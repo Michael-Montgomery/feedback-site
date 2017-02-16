@@ -1,5 +1,6 @@
 var app = angular.module('feedback', [
-    'request.svc'
+    'request.svc',
+    'backgrounds.svc'
 ]);
 
 
@@ -9,7 +10,10 @@ var app = angular.module('feedback', [
 
 
 
-app.controller('feedbackController', function($scope, request) {
+app.controller('feedbackController', function($scope, request, bgUrls) {
+
+
+
 
     var counter = 2;
     var ideaFormCounter = 2;
@@ -26,7 +30,7 @@ app.controller('feedbackController', function($scope, request) {
             $('#down-arrow').css('opacity', '0');
             opacityTicker++;
         }
-    }, 4000)
+    }, 4000);
 
 
 
@@ -110,7 +114,7 @@ app.controller('feedbackController', function($scope, request) {
             }, function(response) {
                 console.log(response);
             })
-    }
+    };
 
     $scope.showIdeaForm = function() {
         if(ideaFormCounter % 2 === 0) {
@@ -130,7 +134,7 @@ app.controller('feedbackController', function($scope, request) {
 
     $scope.toggleDescription = function(idx) {
 
-    }
+    };
 
 
 
@@ -169,7 +173,7 @@ app.controller('feedbackController', function($scope, request) {
                 console.log(response.data)
         }, function(response) {
             console.log(response);
-        })
+        });
         $scope.title = '';
         $scope.description = '';
     };
