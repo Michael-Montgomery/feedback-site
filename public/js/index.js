@@ -1,4 +1,5 @@
 var app = angular.module('feedback', [
+    'ngRoute',
     'request.svc',
     'backgrounds.svc'
 ]);
